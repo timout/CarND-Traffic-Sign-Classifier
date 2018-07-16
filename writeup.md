@@ -201,7 +201,7 @@ The image was identified correctly with confidence 100%.
 ![Pedestrians Only][test_5] 
 
 The image was identified incorrectly with confidence 100.  
-Image type was not in traning set - I was just curious how it will be identified the model. 
+Image type was not in traning set - I was just curious how it will be identified by the model. 
 5 top predictions:  
  1. Class_id:34 (Turn left ahead), confidence:100%
  2. Class_id:0 (Speed limit (20km/h)), confidence:0%
@@ -226,7 +226,7 @@ The image was identified correctly with confidence 100%.
 ![Wild animals crossing][test_7] 
 
 The image was identified incorrectly with confidence 100%.  
-Technically training set contained the class but I suspected the image was not in traning set so I was just curious how it will be identified the model.  
+Technically training set contained the class but I suspected the image was not in traning set so I was just curious how it will be identified by the model.  
 5 top predictions:  
  1. Class_id:21 (Double curve), confidence:100%
  2. Class_id:11 (Right-of-way at the next intersection), confidence:0%
@@ -251,7 +251,7 @@ The image was identified correctly with confidence 100%.
 ![Man with boat crossing][test_9] 
 
 The image was identified incorrectly with confidence 100%.  
-The image class was not in traning set so I was just curious how it will be identified the model.  
+The image class was not in traning set so I was just curious how it will be identified by the model.  
 5 top predictions:  
  1. Class_id:4 (Speed limit (70km/h)), confidence:100%
  2. Class_id:18 (General caution), confidence:0%
