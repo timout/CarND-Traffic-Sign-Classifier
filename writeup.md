@@ -20,7 +20,8 @@ The goals / steps of this project are the following:
 [imgperclass]: output/output_12_0.png "Sample Images per class"
 [numsamples]: output/output_14_0.png "Number Of Samples in training set"
 [numsamples_t]: output/output_21_0.png "Number Of Samples in training split"
-[numsamples_v]: output/output_22_0.png "Number Of Samples in validation spli
+[numsamples_v]: output/output_22_0.png "Number Of Samples in validation split"
+[miscimages]: output/output_41_0.png "Downloaded Images"
 
 ---
 
@@ -104,7 +105,7 @@ My final model consisted of the following layers:
 * Training data were split into a validation (20%) set and a training set (80%).
 * Before every epoch execution training data was shuffled. 
 * To reduce overfitting dropout = 0.7 was added to model.
-* L2 regularization was added to Cross Entropy error to penalize large errors. As result weights were not changing too fast. $1E-6$ value was chosen base on tutorial recomendations.
+* L2 regularization was added to Cross Entropy error to penalize large errors. As result weights were not changing too fast. 1E-6 value was chosen base on tutorial recomendations.
 
 ##### Model Parameters
 1. Epochs: 150
@@ -133,8 +134,7 @@ My final model results were:
 
 Here are 11 German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![Downloaded images][miscimages] 
 
 The first image might be difficult to classify because ...
 
