@@ -20,22 +20,13 @@ The goals / steps of this project are the following:
 [imgperclass]: output/output_12_0.png "Sample Images per class"
 [numsamples]: output/output_14_0.png "Number Of Samples in training set"
 [numsamples_t]: output/output_21_0.png "Number Of Samples in training split"
-[numsamples_v]: output/output_22_0.png "Number Of Samples in validation split"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+[numsamples_v]: output/output_22_0.png "Number Of Samples in validation spli
 
 ---
-### Writeup / README
 
 #### 1. Link to project notebook
 
-here is a link to my [project code](https://github.com/timout/CarND-Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
+Link to my [project code](https://github.com/timout/CarND-Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
@@ -70,32 +61,18 @@ Here is an exploratory visualization of the data set.
 
 ### Design and Test a Model Architecture
 
-#### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+#### 1. Describe how you preprocessed the image data. 
 
-As a first step, I decided to convert the images to grayscale because ...
+I decided not to grayscale the data because colours may be relevant and to decrease influence of shadows, night time, or blur, do not suffer as extreme a penalty.   
+Also for simplicity I decided to use normalization only with range 0,1].
 
-Here is an example of a traffic sign image before and after grayscaling.
-
-![alt text][image2]
-
-As a last step, I normalized the image data because ...
-
-I decided to generate additional data because ... 
-
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
-
-#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.)
+The architecture used is similiar to the LeNet architecture that was implemented in the Udacity LeNet lab.
+The only differences are Dropout and L2 regularization.
 
 My final model consisted of the following layers:
 1. Input: 32x32x3 RGB image
-2. Convolution layer 1 
+2. Convolution layer 1   
    Input: (32, 32, 3) Output: (5, 5, 32)
    * 2D Convolution: STRIDES = (1, 1, 1, 1), PADDING = 'VALID'
    * ReLU Activation
@@ -105,24 +82,29 @@ My final model consisted of the following layers:
    * 2D Convolution: STRIDES = (1, 1, 1, 1), PADDING = 'VALID'
    * ReLU Activation
    * 2D Max Pooling: KSIZE = (1, 2, 2, 1), STRIDES = (1, 2, 2, 1), PADDING = 'VALID'
-4. Flatten: Flattens the input while maintaining the batch_size 
+4. Flatten: Flattens the input while maintaining the batch_size  
    Input: (5, 5, 64) Output: 1600
-5. Fully connected layer 1
+5. Fully connected layer 1  
    Input: 1600 Output: 1024
    * WX+b
    * ReLU Activation
    * Dropout: 0.7
-6. Fully connected layer 2
+6. Fully connected layer 2  
    Input: 1024 Output: 512
    * WX+b
    * ReLU Activation
    * Dropout: 0.7   
-7. Output layer 
+7. Output layer  
     Input: 512 Output: 43
     * WX+B 
 
 
 #### 3. Describe how you trained your model. 
+* Training and test data were already separated (downloaded pickled files train.p and test.p).
+* Training data were split into a validation (20%) set and a training set (80%).
+* Before every epoch execution training data was shuffled. 
+* To reduce overfitting dropout = 0.7 was added to model.
+* L2 regularization was added to Cross Entropy error to penalize large errors. As result weights were not changing too fast. $1E-6$ value was chosen base on tutorial recomendations.
 
 ##### Model Parameters
 1. Epochs: 150
@@ -135,25 +117,15 @@ My final model consisted of the following layers:
 8. Loss optimization algorithm: Adam
 9. Training / validation split 80/20.
 
-#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+All those parameters were chosen base on recommendations given in the coursework and Tensorflow tutorial.  
+I have started with Epochs number = 50 and Dropout = 0.5. Gradually changing them I found the best result with 150 and 0.7.  
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
+* Training Accuracy = 0.99989
+* Validation Accuracy = 0.99713
+* Training Loss = 0.01612
+* Validation Loss = 0.05230
+* Test Set Accuracy = 0.95313
 
 ### Test a Model on New Images
 
@@ -202,3 +174,35 @@ For the second image ...
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
 
+Image 1
+filename: rs_01.jpg (Road work) was identified correctly with confidence 100
+
+Image 2
+filename: rs_02.jpg (Speed limit (70km/h)) was identified correctly with confidence 100
+
+Image 3
+filename: rs_03.jpg (Turn right ahead) was identified correctly with confidence 100
+
+Image 4
+filename: rs_04.jpeg (Yield) was identified correctly with confidence 100
+
+Image 5
+filename: rs_05.jpg (Pedestrians Only) was identified incorrectly with confidence 100 (sign was not in training set)
+
+Image 6
+filename: rs_06.jpg (Right-of-way at the next intersection) was identified correctly with confidence 100
+
+Image 7
+filename: rs_07.jpg (Wild animals crossing) was identified incorrectly with confidence 100 (sign was not in training set)
+
+Image 8
+filename: rs_08.jpg (Priority road) was identified correctly with confidence 100
+
+Image 9
+filename: rs_09.jpg (Man with boat crossing) was identified incorrectly with confidence 100 (sign was not in training set)
+
+Image 10
+filename: rs_10.jpeg (Drunk man crossing) was identified incorrectly with confidence 100 (sign was not in training set)
+
+Image 11
+filename: rs_11.jpg (Wild animals crossing) was identified correctly with confidence 100
