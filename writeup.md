@@ -75,8 +75,8 @@ Here is an exploratory visualization of the data set.
 
 #### 1. Describe how you preprocessed the image data. 
 
-I decided not to grayscale the data because colours may be relevant and to decrease influence of shadows, night time, or blur, do not suffer as extreme a penalty.   
-Also for simplicity I decided to use normalization only with range 0,1].
+I decided not to grayscale the data because colors may be relevant and to decrease influence of shadows, night time, or blur.   
+Also for simplicity I decided to use normalization only with range [0,1].
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.)
 The architecture used is similiar to the LeNet architecture that was implemented in the Udacity LeNet lab.
@@ -141,6 +141,7 @@ My final model results were:
 
 ### Test a Model on New Images
 
+The code for making predictions on my final model is located in the 27th code-cell of the Ipython notebook.  
 Here are 11 German traffic signs that I found on the web:
 
 ![Downloaded images][miscimages] 
@@ -200,7 +201,7 @@ The image was identified correctly with confidence 100%.
 ![Pedestrians Only][test_5] 
 
 The image was identified incorrectly with confidence 100.  
-Image was not in traning set - I was just curious how it will be identified by net. 
+Image was not in traning set - I was just curious how it will be identified the model. 
 5 top predictions:  
  1. Class_id:34 (Turn left ahead), confidence:100%
  2. Class_id:0 (Speed limit (20km/h)), confidence:0%
@@ -225,7 +226,7 @@ The image was identified correctly with confidence 100%.
 ![Wild animals crossing][test_7] 
 
 The image was identified incorrectly with confidence 100%.  
-Technically training set contained the class but I suspected the image was not in traning set so I was just curious how it will be identified by net.  
+Technically training set contained the class but I suspected the image was not in traning set so I was just curious how it will be identified the model.  
 5 top predictions:  
  1. Class_id:21 (Double curve), confidence:100%
  2. Class_id:11 (Right-of-way at the next intersection), confidence:0%
@@ -250,7 +251,7 @@ The image was identified correctly with confidence 100%.
 ![Man with boat crossing][test_9] 
 
 The image was identified incorrectly with confidence 100%.  
-The image was not in traning set so I was just curious how it will be identified by net.  
+The image was not in traning set so I was just curious how it will be identified the model.  
 5 top predictions:  
  1. Class_id:4 (Speed limit (70km/h)), confidence:100%
  2. Class_id:18 (General caution), confidence:0%
@@ -263,7 +264,7 @@ The image was not in traning set so I was just curious how it will be identified
 ![Drunk man crossing][test_10] 
 
 The image was identified incorrectly with confidence 71%.  
-The image was not in traning set so I was just curious how it will be identified by net.  
+The image was not in traning set so I was just curious how it will be identified by the model.  
 5 top predictions:  
  1. Class_id:10 (No passing for vehicles over 3.5 metric tons), confidence:71%
  2. Class_id:9 (No passing), confidence:17%
@@ -283,3 +284,9 @@ The image was identified correctly with confidence 100%.
  4. Class_id:19 (Dangerous curve to the left), confidence:0%
  5. Class_id:11 (Right-of-way at the next intersection), confidence:0%
 
+
+"New Images" were logically devided into 2 groups: 
+1. Known to the model (7)  
+2. Unknown to the model (4)  
+All images from the "known group" were classified correctly with confidence 100%. Surprisingly model was able to classify all "known" images with EPOCHS = 10 only but with increasing EPOCHS it lost that ability, I tested up to 256 epochs. Dropout increase helped dramatically.    
+All images from "unknown group" were classified incorrectly mostly with confidence 100%. 100% was a confusing result but inability to classify I guess was expected since model did not have any logic to generalize. Image 7 (Wild animals crossing) was a very good example of inability to generalize. That is very good point for improvement.
