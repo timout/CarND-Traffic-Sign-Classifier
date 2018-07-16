@@ -22,6 +22,17 @@ The goals / steps of this project are the following:
 [numsamples_t]: output/output_21_0.png "Number Of Samples in training split"
 [numsamples_v]: output/output_22_0.png "Number Of Samples in validation split"
 [miscimages]: output/output_41_0.png "Downloaded Images"
+[test_1]: output/output_43_7.png "Test Image 1"
+[test_2]: output/output_43_17.png "Test Image 2"
+[test_3]: output/output_43_19.png "Test Image 3"
+[test_4]: output/output_43_3.png "Test Image 4"
+[test_5]: output/output_43_11.png "Test Image 5"
+[test_6]: output/output_43_21.png "Test Image 6"
+[test_7]: output/output_43_9.png "Test Image 7"
+[test_8]: output/output_43_13.png "Test Image 8"
+[test_9]: output/output_43_1.png "Test Image 9"
+[test_10]: output/output_43_5.png "Test Image 10"
+[test_11]: output/output_43_15.png "Test Image 11"
 
 ---
 
@@ -130,79 +141,145 @@ My final model results were:
 
 ### Test a Model on New Images
 
-#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
-
 Here are 11 German traffic signs that I found on the web:
 
 ![Downloaded images][miscimages] 
 
-The first image might be difficult to classify because ...
+Some images were not from training set so I downloaded them out of curioucity.  
 
-#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### Image 1 (Road work)
 
-Here are the results of the prediction:
+![Road work][test_1] 
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+The image was identified correctly with confidence 100%.  
+5 top predictions:  
+ 1. Class_id:25 (Road work), confidence:100%
+ 2. Class_id:11 (Right-of-way at the next intersection), confidence:0%
+ 3. Class_id:0 (Speed limit (20km/h)), confidence:0%
+ 4. Class_id:1 (Speed limit (30km/h)), confidence:0%
+ 5. Class_id:2 (Speed limit (50km/h)), confidence:0%
 
+#### Image 2 (Speed limit (70km/h))
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+![Speed limit (70km/h)][test_2] 
 
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+The image was identified correctly with confidence 100%.  
+5 top predictions:  
+ 1. Class_id:4 (Speed limit (70km/h)), confidence:100%
+ 2. Class_id:33 (Turn right ahead), confidence:0%
+ 3. Class_id:2 (Speed limit (50km/h)), confidence:0%
+ 4. Class_id:19 (Dangerous curve to the left), confidence:0%
+ 5. Class_id:35 (Ahead only), confidence:0%
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+#### Image 3 (Turn right ahead)
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+![Turn right ahead][test_3] 
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+The image was identified correctly with confidence 100%.  
+5 top predictions:  
+ 1. Class_id:33 (Turn right ahead), confidence:100%
+ 2. Class_id:0 (Speed limit (20km/h)), confidence:0%
+ 3. Class_id:1 (Speed limit (30km/h)), confidence:0%
+ 4. Class_id:2 (Speed limit (50km/h)), confidence:0%
+ 5. Class_id:3 (Speed limit (60km/h)), confidence:0%
 
+#### Image 4 (Yield)
 
-For the second image ... 
+![Yield][test_4] 
 
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+The image was identified correctly with confidence 100%.  
+5 top predictions:  
+ 1. Class_id:13 (Yield), confidence:100%
+ 2. Class_id:0 (Speed limit (20km/h)), confidence:0%
+ 3. Class_id:1 (Speed limit (30km/h)), confidence:0%
+ 4. Class_id:2 (Speed limit (50km/h)), confidence:0%
+ 5. Class_id:3 (Speed limit (60km/h)), confidence:0%
 
+#### Image 5 (Pedestrians Only)
 
-Image 1
-filename: rs_01.jpg (Road work) was identified correctly with confidence 100
+![Pedestrians Only][test_5] 
 
-Image 2
-filename: rs_02.jpg (Speed limit (70km/h)) was identified correctly with confidence 100
+The image was identified incorrectly with confidence 100.  
+Image was not in traning set - I was just curious how it will be identified by net. 
+5 top predictions:  
+ 1. Class_id:34 (Turn left ahead), confidence:100%
+ 2. Class_id:0 (Speed limit (20km/h)), confidence:0%
+ 3. Class_id:1 (Speed limit (30km/h)), confidence:0%
+ 4. Class_id:2 (Speed limit (50km/h)), confidence:0%
+ 5. Class_id:3 (Speed limit (60km/h)), confidence:0%
 
-Image 3
-filename: rs_03.jpg (Turn right ahead) was identified correctly with confidence 100
+#### Image 6 (Right-of-way at the next intersection)
 
-Image 4
-filename: rs_04.jpeg (Yield) was identified correctly with confidence 100
+![Right-of-way at the next intersection][test_6] 
 
-Image 5
-filename: rs_05.jpg (Pedestrians Only) was identified incorrectly with confidence 100 (sign was not in training set)
+The image was identified correctly with confidence 100%.  
+5 top predictions:  
+ 1. lass_id:11 (Right-of-way at the next intersection), confidence:100%
+ 2. Class_id:0 (Speed limit (20km/h)), confidence:0%
+ 3. Class_id:1 (Speed limit (30km/h)), confidence:0%
+ 4. Class_id:2 (Speed limit (50km/h)), confidence:0%
+ 5. Class_id:3 (Speed limit (60km/h)), confidence:0%
 
-Image 6
-filename: rs_06.jpg (Right-of-way at the next intersection) was identified correctly with confidence 100
+#### Image 7 (Wild animals crossing)
 
-Image 7
-filename: rs_07.jpg (Wild animals crossing) was identified incorrectly with confidence 100 (sign was not in training set)
+![Wild animals crossing][test_7] 
 
-Image 8
-filename: rs_08.jpg (Priority road) was identified correctly with confidence 100
+The image was identified incorrectly with confidence 100%.  
+Technically training set contained the class but I suspected the image was not in traning set so I was just curious how it will be identified by net.  
+5 top predictions:  
+ 1. Class_id:21 (Double curve), confidence:100%
+ 2. Class_id:11 (Right-of-way at the next intersection), confidence:0%
+ 3. Class_id:19 (Dangerous curve to the left), confidence:0%
+ 4. Class_id:10 (No passing for vehicles over 3.5 metric tons), confidence:0%
+ 5. Class_id:31 (Wild animals crossing), confidence:0%
 
-Image 9
-filename: rs_09.jpg (Man with boat crossing) was identified incorrectly with confidence 100 (sign was not in training set)
+#### Image 8 (Priority road)
 
-Image 10
-filename: rs_10.jpeg (Drunk man crossing) was identified incorrectly with confidence 100 (sign was not in training set)
+![Priority road][test_8] 
 
-Image 11
-filename: rs_11.jpg (Wild animals crossing) was identified correctly with confidence 100
+The image was identified correctly with confidence 100%.  
+5 top predictions:  
+ 1. Class_id:12 (Priority road), confidence:100%
+ 2. Class_id:0 (Speed limit (20km/h)), confidence:0%
+ 3. Class_id:1 (Speed limit (30km/h)), confidence:0%
+ 4. Class_id:2 (Speed limit (50km/h)), confidence:0%
+ 5. Class_id:3 (Speed limit (60km/h)), confidence:0%
+
+#### Image 9 (Man with boat crossing)
+
+![Man with boat crossing][test_9] 
+
+The image was identified incorrectly with confidence 100%.  
+The image was not in traning set so I was just curious how it will be identified by net.  
+5 top predictions:  
+ 1. Class_id:4 (Speed limit (70km/h)), confidence:100%
+ 2. Class_id:18 (General caution), confidence:0%
+ 3. Class_id:26 (Traffic signals), confidence:0%
+ 4. Class_id:14 (Stop), confidence:0%
+ 5. Class_id:33 (Turn right ahead), confidence:0%
+
+#### Image 10 (Drunk man crossing)
+
+![Drunk man crossing][test_10] 
+
+The image was identified incorrectly with confidence 71%.  
+The image was not in traning set so I was just curious how it will be identified by net.  
+5 top predictions:  
+ 1. Class_id:10 (No passing for vehicles over 3.5 metric tons), confidence:71%
+ 2. Class_id:9 (No passing), confidence:17%
+ 3. Class_id:4 (Speed limit (70km/h)), confidence:9%
+ 4. Class_id:5 (Speed limit (80km/h)), confidence:2%
+ 5. Class_id:22 (Bumpy road), confidence:1%
+
+#### Image 11 (Wild animals crossing)
+
+![Wild animals crossing][test_11] 
+
+The image was identified correctly with confidence 100%.  
+5 top predictions:  
+ 1. Class_id:31 (Wild animals crossing), confidence:100%
+ 2. Class_id:10 (No passing for vehicles over 3.5 metric tons), confidence:0%
+ 3. Class_id:25 (Road work), confidence:0%
+ 4. Class_id:19 (Dangerous curve to the left), confidence:0%
+ 5. Class_id:11 (Right-of-way at the next intersection), confidence:0%
+
