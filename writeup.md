@@ -112,11 +112,11 @@ My final model consisted of the following layers:
 
 
 #### 3. Describe how you trained your model. 
-* Training and test data were already separated (downloaded pickled files train.p and test.p).
+* Training and test data were already separated (train.p and test.p).
 * Training data were split into a validation (20%) set and a training set (80%).
 * Before every epoch execution training data was shuffled. 
 * To reduce overfitting dropout = 0.7 was added to model.
-* L2 regularization was added to Cross Entropy error to penalize large errors. As result weights were not changing too fast. 1E-6 value was chosen base on tutorial recomendations.
+* L2 regularization was added to Cross Entropy error to penalize large errors. As result weights were changing slowly. 1E-6 value was chosen base on tutorial recomendations.
 
 ##### Model Parameters
 1. Epochs: 150
@@ -146,7 +146,7 @@ Here are 11 German traffic signs that I found on the web:
 
 ![Downloaded images][miscimages] 
 
-Some images were not from training set so I downloaded them out of curioucity.  
+Some of the image types were not in training set so I downloaded them out of curioucity.  
 
 #### Image 1 (Road work)
 
@@ -201,7 +201,7 @@ The image was identified correctly with confidence 100%.
 ![Pedestrians Only][test_5] 
 
 The image was identified incorrectly with confidence 100.  
-Image was not in traning set - I was just curious how it will be identified the model. 
+Image type was not in traning set - I was just curious how it will be identified the model. 
 5 top predictions:  
  1. Class_id:34 (Turn left ahead), confidence:100%
  2. Class_id:0 (Speed limit (20km/h)), confidence:0%
@@ -251,7 +251,7 @@ The image was identified correctly with confidence 100%.
 ![Man with boat crossing][test_9] 
 
 The image was identified incorrectly with confidence 100%.  
-The image was not in traning set so I was just curious how it will be identified the model.  
+The image class was not in traning set so I was just curious how it will be identified the model.  
 5 top predictions:  
  1. Class_id:4 (Speed limit (70km/h)), confidence:100%
  2. Class_id:18 (General caution), confidence:0%
@@ -264,7 +264,7 @@ The image was not in traning set so I was just curious how it will be identified
 ![Drunk man crossing][test_10] 
 
 The image was identified incorrectly with confidence 71%.  
-The image was not in traning set so I was just curious how it will be identified by the model.  
+The image class was not in traning set so I was just curious how it will be identified by the model.  
 5 top predictions:  
  1. Class_id:10 (No passing for vehicles over 3.5 metric tons), confidence:71%
  2. Class_id:9 (No passing), confidence:17%
@@ -288,5 +288,5 @@ The image was identified correctly with confidence 100%.
 "New Images" were logically devided into 2 groups: 
 1. Known to the model (7)  
 2. Unknown to the model (4)  
-All images from the "known group" were classified correctly with confidence 100%. Surprisingly model was able to classify all "known" images with EPOCHS = 10 only but with increasing EPOCHS it lost that ability, I tested up to 256 epochs. Dropout increase helped dramatically.    
-All images from "unknown group" were classified incorrectly mostly with confidence 100%. 100% was a confusing result but inability to classify I guess was expected since model did not have any logic to generalize. Image 7 (Wild animals crossing) was a very good example of inability to generalize. That is very good point for improvement.
+All images from the "known group" were classified correctly with confidence 100%. Surprisingly model was able to classify all "known" images with EPOCHS = 10 only but with increasing EPOCHS it lost that ability, I tested up to 256 epochs. Dropout increase fixed that problem.    
+All images from "unknown group" were classified incorrectly mostly with confidence 100%. 100% was a confusing result but inability to classify I guess was expected since model did not have any logic to generalize. Image 7 (Wild animals crossing) was a very good example of that inability to generalize. That is very good point for improvement.
